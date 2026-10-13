@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indovina il regalo</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #fce7f3, #fbcfe8, #f9a8d4);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .box {
+            background: white;
+            border-radius: 5px;
+            max-width: 500px;
+            width: 100%;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(212, 134, 159, 0.25);
+            border: 1px solid rgba(212, 134, 159, 0.1);
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #d4869f;
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+        .btn {
+            display: inline-block;
+            background: #d4869f;
+            color: white;
+            padding: 10px 30px;
+            border-radius: 25px;
+            font-size: 1em;
+            text-decoration: none;
+            margin: 10px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #c85a7c;
+        }
+        #msg {
+            margin-top: 20px;
+            color: #c85a7c;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Qual è il regalo?</h2>
+
+        <input id="risposta" type="text" placeholder="Scrivi la tua risposta...">
+
+        <div>
+            <a class="btn" href="index.html">Indietro</a>
+            <button class="btn" onclick="controlla()">Conferma</button>
+        </div>
+
+        <p id="msg"></p>
+    </div>
+
+    <script>
+        function controlla() {
+            const r = document.getElementById("risposta").value.trim().toLowerCase();
+            const corrette = ["bormio", "terme", "qc", "montagna"];
+
+            if (corrette.includes(r)) {
+                x(); // qui esegui la tua funzione
+            } else {
+                document.getElementById("msg").innerHTML =
+                    "La risposta è sbagliata, non hai indovinato il regalo.<br>Hai perso l'occasione di ricevere questo regalo, ritenta a Natale.";
+            }
+        }
+
+        function x() {
+            // QUI mi dirai cosa deve succedere
+            alert("Hai indovinato! 🎉");
+        }
+    </script>
+</body>
+</html>

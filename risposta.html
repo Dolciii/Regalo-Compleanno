@@ -83,20 +83,27 @@
         function controlla() {
             const r = document.getElementById("risposta").value.trim().toLowerCase();
             const corrette = ["bormio", "terme", "qc", "montagna"];
-
-            if (!confirm("Sei sicura della tua risposta?")) return;
-
+    
+            // Se la risposta è corretta → NESSUNA conferma
             if (corrette.includes(r)) {
                 document.getElementById("contenuto").innerHTML =
                     "<p class='successo'>Hai indovinato, per vedere il tuo regalo vai in camera da letto.</p>";
-            } else {
-                document.getElementById("contenuto").innerHTML =
-                    "<p class='errore'>La risposta è sbagliata, non hai indovinato il regalo.<br>Hai perso l'occasione di ricevere questo regalo, ritenta a Natale.</p>";
-                setTimeout(() => {
-                    window.location.href = 'foto.html';
-                }, 10000);
+                return;
             }
+    
+            // Se la risposta è sbagliata → CHIEDE conferma
+            if (!confirm("Sei sicura della tua risposta?")) return;
+    
+            // Mostra errore e avvia timeout di 10 secondi
+            document.getElementById("contenuto").innerHTML =
+                "<p class='errore'>La risposta è sbagliata, non hai indovinato il regalo.<br>Hai perso l'occasione di ricevere questo regalo, ritenta a Natale.</p>";
+    
+            setTimeout(() => {
+                window.location.href = 'foto.html';
+            }, 10000);
         }
+    </script>
+
     </script>
 </body>
 </html>

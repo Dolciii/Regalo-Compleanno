@@ -10,8 +10,9 @@
             background: linear-gradient(135deg, #fce7f3, #fbcfe8, #f9a8d4);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             padding: 20px;
         }
         .box {
@@ -23,12 +24,23 @@
             text-align: center;
             box-shadow: 0 20px 60px rgba(212, 134, 159, 0.25);
             border: 1px solid rgba(212, 134, 159, 0.1);
+            margin-bottom: 30px;
         }
         h1 {
             font-size: 2.2em;
             color: #d4869f;
             font-weight: 300;
             margin-bottom: 25px;
+        }
+        img {
+            width: 60%;
+            border-radius: 4px;
+            margin: 15px auto;
+            display: block;
+            box-shadow: 0 5px 15px rgba(212, 134, 159, 0.15);
+        }
+        .box img:last-of-type {
+            margin-bottom: 50px;
         }
         .btn {
             display: inline-block;
@@ -48,11 +60,28 @@
     </style>
 </head>
 <body>
+    <!-- Prima schermata: domanda + pulsanti -->
     <div class="box">
         <h1>Vuoi davvero scoprire il tuo regalo?</h1>
 
-        <a class="btn" href="foto.html">Si</a>
-        <a class="btn" href="foto.html">Si, suca</a>
+        <a class="btn" href="#indizi">Si</a>
+        <a class="btn" href="#indizi">Si, suca</a>
+    </div>
+
+    <!-- Seconda schermata: indizi -->
+    <div class="box" id="indizi">
+        <h1>Collega gli indizi per indovinare il tuo regalo</h1>
+
+        <img src="indizi/EGITTO.jpg" alt="Egitto">
+        <img src="indizi/MONTAGNA.jpg" alt="Montagna innevata">
+        <img src="indizi/ROLLERCOASTER.jpg" alt="Rollercoaster">
+        <img src="indizi/SARDEGNA.jpg" alt="Spiaggia della Sardegna">
+        <img src="indizi/TOPOLINO.jpg" alt="Topolino">
+        <img src="indizi/CORALLO.jpg" alt="Barriera corallina">
+        <img src="indizi/GARMIN.jpg" alt="Garmin">
+        <img src="indizi/MAPPA.jpg" alt="Mappa">
+
+        <a class="btn" href="risposta.html">Continua</a>
     </div>
 </body>
 </html>

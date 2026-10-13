@@ -24,6 +24,12 @@
             box-shadow: 0 20px 60px rgba(212, 134, 159, 0.25);
             border: 1px solid rgba(212, 134, 159, 0.1);
         }
+        h1 {
+            font-size: 2.2em;
+            color: #d4869f;
+            font-weight: 300;
+            margin-bottom: 25px;
+        }
         input {
             width: 80%;
             padding: 10px;
@@ -51,20 +57,25 @@
             color: #c85a7c;
             font-style: italic;
         }
+        .errore {
+            color: red;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="box">
-        <h2>Qual è il regalo?</h2>
+        <h1>Indovina il regalo</h1>
 
-        <input id="risposta" type="text" placeholder="Scrivi la tua risposta...">
-
-        <div>
-            <a class="btn" href="index.html">Indietro</a>
-            <button class="btn" onclick="controlla()">Conferma</button>
+        <div id="contenuto">
+            <input id="risposta" type="text" placeholder="Scrivi la tua risposta...">
+            <div>
+                <button class="btn" onclick="controlla()">Conferma</button>
+            </div>
+            <p id="msg"></p>
         </div>
-
-        <p id="msg"></p>
     </div>
 
     <script>
@@ -72,17 +83,21 @@
             const r = document.getElementById("risposta").value.trim().toLowerCase();
             const corrette = ["bormio", "terme", "qc", "montagna"];
 
+            // Conferma prima di procedere
+            if (!confirm("Sei sicura della tua risposta?")) return;
+
             if (corrette.includes(r)) {
-                x(); // qui esegui la tua funzione
+                x(); // esegue la funzione corretta
             } else {
-                document.getElementById("msg").innerHTML =
-                    "La risposta è sbagliata, non hai indovinato il regalo.<br>Hai perso l'occasione di ricevere questo regalo, ritenta a Natale.";
+                // Rimuove tutto e mostra solo il messaggio di errore
+                document.getElementById("contenuto").innerHTML =
+                    "<p class='errore'>La risposta è sbagliata, non hai indovinato il regalo.<br>Hai perso l'occasione di ricevere questo regalo, ritenta a Natale.</p>";
             }
         }
 
         function x() {
-            // QUI mi dirai cosa deve succedere
             alert("Hai indovinato! 🎉");
+            // Qui puoi aggiungere ciò che deve succedere se è giusta
         }
     </script>
 </body>

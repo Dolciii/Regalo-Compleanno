@@ -3,353 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Un Invito Speciale</title>
+    <title>Collega gli indizi per indovinare il tuo regalo</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 50%, #f9a8d4 100%);
+            background: linear-gradient(135deg, #fce7f3, #fbcfe8, #f9a8d4);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
         }
-
-        .container {
+        .box {
             background: white;
             border-radius: 5px;
-            box-shadow: 0 20px 60px rgba(212, 134, 159, 0.25);
             max-width: 650px;
             width: 100%;
-            overflow: hidden;
-            animation: slideIn 0.8s ease-out;
-            border: 1px solid rgba(212, 134, 159, 0.1);
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .header {
-            background: white;
-            padding: 60px 40px 40px 40px;
-            text-align: center;
-            border-bottom: 1px solid rgba(212, 134, 159, 0.1);
-            position: relative;
-        }
-
-        .header::before {
-            content: "✨";
-            position: absolute;
-            font-size: 30px;
-            opacity: 0.3;
-            top: 15px;
-            left: 40px;
-        }
-
-        .header::after {
-            content: "✨";
-            position: absolute;
-            font-size: 30px;
-            opacity: 0.3;
-            top: 15px;
-            right: 40px;
-        }
-
-        .header-title {
-            font-size: 2.2em;
-            color: #d4869f;
-            margin-bottom: 15px;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-
-        .header-subtitle {
-            font-size: 1em;
-            color: #999;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .content {
-            padding: 50px 45px;
-            text-align: center;
-        }
-
-        .intro {
-            font-size: 1.05em;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 40px;
-            font-style: italic;
-        }
-
-        .spacer-line {
-            width: 60px;
-            height: 1px;
-            background: rgba(212, 134, 159, 0.3);
-            margin: 30px auto;
-        }
-
-        .destination-section {
-            margin: 40px 0;
-        }
-
-        .destination-emoji {
-            font-size: 4em;
-            margin-bottom: 20px;
-        }
-
-        .destination-title {
-            font-size: 2em;
-            color: #2a2a2a;
-            margin-bottom: 10px;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
-        .destination-subtitle {
-            font-size: 1.1em;
-            color: #d4869f;
-            margin-bottom: 30px;
-            font-weight: 400;
-        }
-
-        .details-container {
-            background: rgba(252, 231, 243, 0.5);
-            border-radius: 3px;
             padding: 35px;
-            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(212, 134, 159, 0.25);
             border: 1px solid rgba(212, 134, 159, 0.1);
         }
-
-        .detail-row {
-            margin: 25px 0;
-            text-align: center;
-        }
-
-        .detail-label {
-            font-size: 0.85em;
-            color: #999;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .detail-value {
-            font-size: 1.3em;
-            color: #2a2a2a;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-        }
-
-        .experience-title {
-            font-size: 1.2em;
+        h1 {
+            font-size: 1.7em;
             color: #d4869f;
-            margin: 35px 0 20px 0;
-            font-weight: 400;
-            letter-spacing: 1px;
+            font-weight: 300;
+            margin-bottom: 25px;
         }
-
-        .experience-list {
-            text-align: left;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .experience-item {
+        img {
+            width: 100%;
+            border-radius: 4px;
             margin: 18px 0;
-            padding-left: 25px;
-            position: relative;
-            color: #555;
-            font-size: 0.95em;
-            line-height: 1.6;
-        }
-
-        .experience-item::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #d4869f;
-            font-weight: bold;
-        }
-
-        .closing {
-            margin: 45px 0 30px 0;
-            padding: 30px;
-            background: linear-gradient(135deg, rgba(212, 134, 159, 0.08) 0%, rgba(212, 134, 159, 0.04) 100%);
-            border-radius: 3px;
-            border-left: 3px solid #d4869f;
-        }
-
-        .closing-text {
-            font-size: 1.05em;
-            color: #555;
-            line-height: 1.7;
-            font-style: italic;
-        }
-
-        .cta-button {
-            background: linear-gradient(135deg, #d4869f 0%, #c85a7c 100%);
-            color: white;
-            padding: 16px 50px;
-            font-size: 1em;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            margin-top: 30px;
-            transition: all 0.3s ease;
-            font-weight: 400;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(212, 134, 159, 0.3);
-        }
-
-        .footer {
-            padding: 35px 40px;
-            text-align: center;
-            color: #999;
-            font-size: 0.9em;
-            border-top: 1px solid rgba(212, 134, 159, 0.1);
-            background: rgba(252, 231, 243, 0.3);
-            letter-spacing: 0.5px;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                border-radius: 3px;
-            }
-
-            .header {
-                padding: 40px 25px 30px 25px;
-            }
-
-            .header-title {
-                font-size: 1.8em;
-            }
-
-            .content {
-                padding: 35px 25px;
-            }
-
-            .destination-title {
-                font-size: 1.5em;
-            }
-
-            .details-container {
-                padding: 25px;
-            }
-
-            .detail-value {
-                font-size: 1.1em;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="header-subtitle">Ti invito a celebrare</div>
-            <h1 class="header-title">Il Tuo Compleanno</h1>
-        </div>
+    <div class="box">
+        <h1>Collega gli indizi per indovinare il tuo regalo</h1>
 
-        <div class="content">
-            <p class="intro">
-                Meriti di trascorrere momenti indimenticabili in un luogo dove il tempo si ferma.<br>
-                Per questo, ti chiedo di condividere tre giorni straordinari con me.
-            </p>
-
-            <div class="spacer-line"></div>
-
-            <div class="destination-section">
-                <div class="destination-emoji">🏖️</div>
-                <h2 class="destination-title">Terme di Bormio</h2>
-                <p class="destination-subtitle">Un rifugio di lusso e serenità</p>
-            </div>
-
-            <div class="spacer-line"></div>
-
-            <div class="details-container">
-                <div class="detail-row">
-                    <div class="detail-label">📅 Data</div>
-                    <div class="detail-value">13 • 14 • 15 Dicembre</div>
-                </div>
-
-                <div style="height: 1px; background: rgba(212, 134, 159, 0.1); margin: 25px 0;"></div>
-
-                <div class="detail-row">
-                    <div class="detail-label">📍 Luogo</div>
-                    <div class="detail-value">Terme di Bormio, Lombardia</div>
-                </div>
-
-                <div style="height: 1px; background: rgba(212, 134, 159, 0.1); margin: 25px 0;"></div>
-
-                <div class="detail-row">
-                    <div class="detail-label">✨ Con</div>
-                    <div class="detail-value">Me, solo per te</div>
-                </div>
-            </div>
-
-            <div class="spacer-line"></div>
-
-            <div>
-                <h3 class="experience-title">Cosa ti aspetta</h3>
-                <div class="experience-list">
-                    <div class="experience-item">
-                        Acque termali riscaldate circondate dalle montagne innevate
-                    </div>
-                    <div class="experience-item">
-                        Spa e trattamenti wellness esclusivi per il tuo relax
-                    </div>
-                    <div class="experience-item">
-                        Cene romantiche e colazioni di lusso
-                    </div>
-                    <div class="experience-item">
-                        Paesaggi incantati e atmosfera natalizia
-                    </div>
-                    <div class="experience-item">
-                        Momenti indimenticabili insieme, lontani dal resto del mondo
-                    </div>
-                </div>
-            </div>
-
-            <div class="closing">
-                <p class="closing-text">
-                    Non esiste regalo più prezioso che il tempo trascorso con chi ami.<br>
-                    Ti amo e non vedo l'ora di celebrare con te. 💕
-                </p>
-            </div>
-
-            <button class="cta-button" onclick="celebra()">Accetto 🎉</button>
-        </div>
-
-        <div class="footer">
-            <p>Il viaggio inizia il 13 dicembre. Prepara la valigia del cuore. ✨</p>
-        </div>
+        <img src="EIFFEL.jpeg" alt="Torre Eiffel">
+        <img src="turn0image121" alt="Montagna innevata">
+        <img src="turn0image61" alt="Baguette">
+        <img src="turn0image100" alt="Acqua termale">
+        <img src="turn0image31" alt="Spiaggia della Sardegna">
     </div>
-
-    <script>
-        function celebra() {
-            alert('🎂💕 Che bello! Non vedo l\'ora di partire con te!\nBuon compleanno, tesoro! ✨');
-        }
-    </script>
 </body>
 </html>

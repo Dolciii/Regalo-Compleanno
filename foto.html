@@ -17,11 +17,11 @@
         }
 
         h1 {
-            font-size: 2.2em;
+            font-size: 2.4em;
             color: #d4869f;
             font-weight: 300;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .gallery {
@@ -35,20 +35,28 @@
             width: 100%;
             border-radius: 5px;
             box-shadow: 0 10px 30px rgba(212, 134, 159, 0.25);
+            margin-bottom: 20px;
         }
 
         .caption {
-            margin-top: 15px;
-            font-size: 1.1em;
+            font-size: 1.3em;
             color: #d4869f;
-            font-weight: 500;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-size: 1em;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 25px;
         }
 
         .arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 2em;
+            font-size: 2.5em;
             color: #d4869f;
             cursor: pointer;
             user-select: none;
@@ -60,18 +68,18 @@
         }
 
         .left {
-            left: -40px;
+            left: -50px;
         }
 
         .right {
-            right: -40px;
+            right: -50px;
         }
 
         @media (max-width: 600px) {
             .arrow {
-                font-size: 1.5em;
-                left: -25px;
-                right: -25px;
+                font-size: 2em;
+                left: -30px;
+                right: -30px;
             }
         }
     </style>
@@ -81,52 +89,59 @@
 
     <div class="gallery">
         <span class="arrow left" onclick="prev()">&#8592;</span>
+
         <img id="foto" src="foto/AGOSTO2023.jpg" alt="Agosto 2023">
+
         <p id="caption" class="caption">Agosto 2023</p>
+        <p id="title" class="title">Titolo della foto</p>
+
         <span class="arrow right" onclick="next()">&#8594;</span>
     </div>
 
     <script>
         const immagini = [
-            { src: "foto/AGOSTO2023.jpg", caption: "Agosto 2023" },
-            { src: "foto/SETTEMBRE2023.jpg", caption: "Settembre 2023" },
-            { src: "foto/OTTOBRE2023.jpg", caption: "Ottobre 2023" },
-            { src: "foto/NOVEMBRE2023.jpg", caption: "Novembre 2023" },
-            { src: "foto/DICEMBRE2023.jpg", caption: "Dicembre 2023" },
-            { src: "foto/GENNAIO2024.jpg", caption: "Gennaio 2024" },
-            { src: "foto/FEBBRAIO2024.jpg", caption: "Febbraio 2024" },
-            { src: "foto/MARZO2024.jpg", caption: "Marzo 2024" },
-            { src: "foto/APRILE2024.jpg", caption: "Aprile 2024" },
-            { src: "foto/MAGGIO2024.jpg", caption: "Maggio 2024" },
-            { src: "foto/GIUGNO2024.jpg", caption: "Giugno 2024" },
-            { src: "foto/LUGLIO2024.jpg", caption: "Luglio 2024" },
-            { src: "foto/AGOSTO2024.jpg", caption: "Agosto 2024" },
-            { src: "foto/SETTEMBRE2024.jpg", caption: "Settembre 2024" },
-            { src: "foto/OTTOBRE2024.jpg", caption: "Ottobre 2024" },
-            { src: "foto/NOVEMBRE2024.jpg", caption: "Novembre 2024" },
-            { src: "foto/DICEMBRE2024.jpg", caption: "Dicembre 2024" },
-            { src: "foto/GENNAIO2025.jpg", caption: "Gennaio 2025" },
-            { src: "foto/FEBBRAIO2025.jpg", caption: "Febbraio 2025" },
-            { src: "foto/MARZO2025.jpg", caption: "Marzo 2025" },
-            { src: "foto/APRILE2025.jpg", caption: "Aprile 2025" },
-            { src: "foto/MAGGIO2025.jpg", caption: "Maggio 2025" },
-            { src: "foto/GIUGNO2025.jpg", caption: "Giugno 2025" },
-            { src: "foto/LUGLIO2025.jpg", caption: "Luglio 2025" },
-            { src: "foto/AGOSTO2025.jpg", caption: "Agosto 2025" },
-            { src: "foto/SETTEMBRE2025.jpg", caption: "Settembre 2025" },
-            { src: "foto/OTTOBRE2025.jpg", caption: "Ottobre 2025" },
-            { src: "foto/NOVEMBRE2025.jpg", caption: "Novembre 2025" },
-            { src: "foto/DICEMBRE2025.jpg", caption: "Dicembre 2025" },
-            { src: "foto/GENNAIO2026.jpg", caption: "Gennaio 2026" },
-            { src: "foto/FEBBRAIO2026.jpg", caption: "Febbraio 2026" },
-            { src: "foto/MARZO2026.jpg", caption: "Marzo 2026" },
-            { src: "foto/APRILE2026.jpg", caption: "Aprile 2026" },
-            { src: "foto/MAGGIO2026.jpg", caption: "Maggio 2026" },
-            { src: "foto/GIUGNO2026.jpg", caption: "Giugno 2026" },
-            { src: "foto/LUGLIO2026.jpg", caption: "Luglio 2026" },
-            { src: "foto/AGOSTO2026.jpg", caption: "Agosto 2026" },
-            { src: "foto/SETTEMBRE2026.jpg", caption: "Settembre 2026" },
-            { src: "foto/OTTOBRE2026.jpg", caption: "Ottobre 2026" }
+            { src: "foto/AGOSTO2023.jpg", caption: "Agosto 2023", title: "Titolo foto Agosto 2023" },
+            { src: "foto/SETTEMBRE2023.jpg", caption: "Settembre 2023", title: "Titolo foto Settembre 2023" },
+            { src: "foto/OTTOBRE2023.jpg", caption: "Ottobre 2023", title: "Titolo foto Ottobre 2023" },
+            { src: "foto/NOVEMBRE2023.jpg", caption: "Novembre 2023", title: "Titolo foto Novembre 2023" },
+            { src: "foto/DICEMBRE2023.jpg", caption: "Dicembre 2023", title: "Titolo foto Dicembre 2023" },
+
+            { src: "foto/GENNAIO2024.jpg", caption: "Gennaio 2024", title: "Titolo foto Gennaio 2024" },
+            { src: "foto/FEBBRAIO2024.jpg", caption: "Febbraio 2024", title: "Titolo foto Febbraio 2024" },
+            { src: "foto/MARZO2024.jpg", caption: "Marzo 2024", title: "Titolo foto Marzo 2024" },
+            { src: "foto/APRILE2024.jpg", caption: "Aprile 2024", title: "Titolo foto Aprile 2024" },
+            { src: "foto/MAGGIO2024.jpg", caption: "Maggio 2024", title: "Titolo foto Maggio 2024" },
+            { src: "foto/GIUGNO2024.jpg", caption: "Giugno 2024", title: "Titolo foto Giugno 2024" },
+            { src: "foto/LUGLIO2024.jpg", caption: "Luglio 2024", title: "Titolo foto Luglio 2024" },
+            { src: "foto/AGOSTO2024.jpg", caption: "Agosto 2024", title: "Titolo foto Agosto 2024" },
+            { src: "foto/SETTEMBRE2024.jpg", caption: "Settembre 2024", title: "Titolo foto Settembre 2024" },
+            { src: "foto/OTTOBRE2024.jpg", caption: "Ottobre 2024", title: "Titolo foto Ottobre 2024" },
+            { src: "foto/NOVEMBRE2024.jpg", caption: "Novembre 2024", title: "Titolo foto Novembre 2024" },
+            { src: "foto/DICEMBRE2024.jpg", caption: "Dicembre 2024", title: "Titolo foto Dicembre 2024" },
+
+            { src: "foto/GENNAIO2025.jpg", caption: "Gennaio 2025", title: "Titolo foto Gennaio 2025" },
+            { src: "foto/FEBBRAIO2025.jpg", caption: "Febbraio 2025", title: "Titolo foto Febbraio 2025" },
+            { src: "foto/MARZO2025.jpg", caption: "Marzo 2025", title: "Titolo foto Marzo 2025" },
+            { src: "foto/APRILE2025.jpg", caption: "Aprile 2025", title: "Titolo foto Aprile 2025" },
+            { src: "foto/MAGGIO2025.jpg", caption: "Maggio 2025", title: "Titolo foto Maggio 2025" },
+            { src: "foto/GIUGNO2025.jpg", caption: "Giugno 2025", title: "Titolo foto Giugno 2025" },
+            { src: "foto/LUGLIO2025.jpg", caption: "Luglio 2025", title: "Titolo foto Luglio 2025" },
+            { src: "foto/AGOSTO2025.jpg", caption: "Agosto 2025", title: "Titolo foto Agosto 2025" },
+            { src: "foto/SETTEMBRE2025.jpg", caption: "Settembre 2025", title: "Titolo foto Settembre 2025" },
+            { src: "foto/OTTOBRE2025.jpg", caption: "Ottobre 2025", title: "Titolo foto Ottobre 2025" },
+            { src: "foto/NOVEMBRE2025.jpg", caption: "Novembre 2025", title: "Titolo foto Novembre 2025" },
+            { src: "foto/DICEMBRE2025.jpg", caption: "Dicembre 2025", title: "Titolo foto Dicembre 2025" },
+
+            { src: "foto/GENNAIO2026.jpg", caption: "Gennaio 2026", title: "Titolo foto Gennaio 2026" },
+            { src: "foto/FEBBRAIO2026.jpg", caption: "Febbraio 2026", title: "Titolo foto Febbraio 2026" },
+            { src: "foto/MARZO2026.jpg", caption: "Marzo 2026", title: "Titolo foto Marzo 2026" },
+            { src: "foto/APRILE2026.jpg", caption: "Aprile 2026", title: "Titolo foto Aprile 2026" },
+            { src: "foto/MAGGIO2026.jpg", caption: "Maggio 2026", title: "Titolo foto Maggio 2026" },
+            { src: "foto/GIUGNO2026.jpg", caption: "Giugno 2026", title: "Titolo foto Giugno 2026" },
+            { src: "foto/LUGLIO2026.jpg", caption: "Luglio 2026", title: "Titolo foto Luglio 2026" },
+            { src: "foto/AGOSTO2026.jpg", caption: "Agosto 2026", title: "Titolo foto Agosto 2026" },
+            { src: "foto/SETTEMBRE2026.jpg", caption: "Settembre 2026", title: "Titolo foto Settembre 2026" },
+            { src: "foto/OTTOBRE2026.jpg", caption: "Ottobre 2026", title: "Titolo foto Ottobre 2026" }
         ];
 
         let indice = 0;
@@ -134,6 +149,7 @@
         function mostraFoto() {
             document.getElementById("foto").src = immagini[indice].src;
             document.getElementById("caption").innerText = immagini[indice].caption;
+            document.getElementById("title").innerText = immagini[indice].title;
         }
 
         function next() {

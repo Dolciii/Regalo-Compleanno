@@ -60,11 +60,17 @@
             color: #d4869f;
             cursor: pointer;
             user-select: none;
-            transition: 0.3s;
+            transition: transform 0.1s ease, color 0.2s ease;
         }
-
+        
         .arrow:hover {
             color: #c85a7c;
+            transform: translateY(-50%) scale(1.15);
+        }
+        
+        .arrow:active {
+            color: #a84f6b;
+            transform: translateY(-50%) scale(0.9);
         }
 
         .left {

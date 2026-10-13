@@ -75,6 +75,31 @@
             right: -50px;
         }
 
+        .btn-continua {
+            display: inline-block;
+            background: #d4869f;
+            color: white;
+            padding: 12px 40px;
+            border-radius: 25px;
+            font-size: 1em;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-continua:hover {
+            background: #c85a7c;
+        }
+
+        .finale {
+            font-size: 1.6em;
+            color: #d4869f;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 40px;
+        }
+
         @media (max-width: 600px) {
             .arrow {
                 font-size: 2em;
@@ -87,7 +112,7 @@
 <body>
     <h1>Prima di vedere il tuo regalo (per davvero),<br>riscopriamo insieme questi 3 anni</h1>
 
-    <div class="gallery">
+    <div id="contenuto" class="gallery">
         <span id="leftArrow" class="arrow left" onclick="prev()">&#8592;</span>
 
         <img id="foto" src="foto/ago23.jpg" alt="Agosto 2023">
@@ -96,6 +121,8 @@
         <p id="title" class="title">Titolo foto Agosto 2023</p>
 
         <span id="rightArrow" class="arrow right" onclick="next()">&#8594;</span>
+
+        <div id="continuaBtnContainer"></div>
     </div>
 
     <script>
@@ -103,3 +130,93 @@
             { src: "foto/ago23.jpg", caption: "Agosto 2023", title: "Titolo foto Agosto 2023" },
             { src: "foto/set23.jpg", caption: "Settembre 2023", title: "Titolo foto Settembre 2023" },
             { src: "foto/ott23.jpg", caption: "Ottobre 2023", title: "Titolo foto Ottobre 2023" },
+            { src: "foto/nov23.jpg", caption: "Novembre 2023", title: "Titolo foto Novembre 2023" },
+            { src: "foto/dic23.jpg", caption: "Dicembre 2023", title: "Titolo foto Dicembre 2023" },
+
+            { src: "foto/gen24.jpg", caption: "Gennaio 2024", title: "Titolo foto Gennaio 2024" },
+            { src: "foto/feb24.jpg", caption: "Febbraio 2024", title: "Titolo foto Febbraio 2024" },
+            { src: "foto/mar24.jpg", caption: "Marzo 2024", title: "Titolo foto Marzo 2024" },
+            { src: "foto/apr24.jpg", caption: "Aprile 2024", title: "Titolo foto Aprile 2024" },
+            { src: "foto/mag24.jpg", caption: "Maggio 2024", title: "Titolo foto Maggio 2024" },
+            { src: "foto/giu24.jpg", caption: "Giugno 2024", title: "Titolo foto Giugno 2024" },
+            { src: "foto/lug24.jpg", caption: "Luglio 2024", title: "Titolo foto Luglio 2024" },
+            { src: "foto/ago24.jpg", caption: "Agosto 2024", title: "Titolo foto Agosto 2024" },
+            { src: "foto/set24.jpg", caption: "Settembre 2024", title: "Titolo foto Settembre 2024" },
+            { src: "foto/ott24.jpg", caption: "Ottobre 2024", title: "Titolo foto Ottobre 2024" },
+            { src: "foto/nov24.jpg", caption: "Novembre 2024", title: "Titolo foto Novembre 2024" },
+            { src: "foto/dic24.jpg", caption: "Dicembre 2024", title: "Titolo foto Dicembre 2024" },
+
+            { src: "foto/gen25.jpg", caption: "Gennaio 2025", title: "Titolo foto Gennaio 2025" },
+            { src: "foto/feb25.jpg", caption: "Febbraio 2025", title: "Titolo foto Febbraio 2025" },
+            { src: "foto/mar25.jpg", caption: "Marzo 2025", title: "Titolo foto Marzo 2025" },
+            { src: "foto/apr25.jpg", caption: "Aprile 2025", title: "Titolo foto Aprile 2025" },
+            { src: "foto/mag25.jpg", caption: "Maggio 2025", title: "Titolo foto Maggio 2025" },
+            { src: "foto/giu25.jpg", caption: "Giugno 2025", title: "Titolo foto Giugno 2025" },
+            { src: "foto/lug25.jpg", caption: "Luglio 2025", title: "Titolo foto Luglio 2025" },
+            { src: "foto/ago25.jpg", caption: "Agosto 2025", title: "Titolo foto Agosto 2025" },
+            { src: "foto/set25.jpg", caption: "Settembre 2025", title: "Titolo foto Settembre 2025" },
+            { src: "foto/ott25.jpg", caption: "Ottobre 2025", title: "Titolo foto Ottobre 2025" },
+            { src: "foto/nov25.jpg", caption: "Novembre 2025", title: "Titolo foto Novembre 2025" },
+            { src: "foto/dic25.jpg", caption: "Dicembre 2025", title: "Titolo foto Dicembre 2025" },
+
+            { src: "foto/gen26.jpg", caption: "Gennaio 2026", title: "Titolo foto Gennaio 2026" },
+            { src: "foto/feb26.jpg", caption: "Febbraio 2026", title: "Titolo foto Febbraio 2026" },
+            { src: "foto/mar26.jpg", caption: "Marzo 2026", title: "Titolo foto Marzo 2026" },
+            { src: "foto/apr26.jpg", caption: "Aprile 2026", title: "Titolo foto Aprile 2026" },
+            { src: "foto/mag26.jpg", caption: "Maggio 2026", title: "Titolo foto Maggio 2026" },
+            { src: "foto/giu26.jpg", caption: "Giugno 2026", title: "Titolo foto Giugno 2026" },
+            { src: "foto/lug26.jpg", caption: "Luglio 2026", title: "Titolo foto Luglio 2026" },
+            { src: "foto/ago26.jpg", caption: "Agosto 2026", title: "Titolo foto Agosto 2026" },
+            { src: "foto/set26.jpg", caption: "Settembre 2026", title: "Titolo foto Settembre 2026" },
+            { src: "foto/ott26.jpg", caption: "Ottobre 2026", title: "Titolo foto Ottobre 2026" }
+        ];
+
+        let indice = 0;
+
+        function aggiornaFreccie() {
+            const left = document.getElementById("leftArrow");
+            const right = document.getElementById("rightArrow");
+            const continua = document.getElementById("continuaBtnContainer");
+
+            left.style.display = indice === 0 ? "none" : "block";
+            right.style.display = indice === immagini.length - 1 ? "none" : "block";
+
+            // Mostra il tasto continua SOLO sull'ultima foto
+            if (indice === immagini.length - 1) {
+                continua.innerHTML = `<button class="btn-continua" onclick="finale()">Continua</button>`;
+            } else {
+                continua.innerHTML = "";
+            }
+        }
+
+        function mostraFoto() {
+            document.getElementById("foto").src = immagini[indice].src;
+            document.getElementById("caption").innerText = immagini[indice].caption;
+            document.getElementById("title").innerText = immagini[indice].title;
+
+            aggiornaFreccie();
+        }
+
+        function next() {
+            if (indice < immagini.length - 1) {
+                indice++;
+                mostraFoto();
+            }
+        }
+
+        function prev() {
+            if (indice > 0) {
+                indice--;
+                mostraFoto();
+            }
+        }
+
+        function finale() {
+            document.getElementById("contenuto").innerHTML =
+                `<p class="finale">Hai indovinato, per vedere il tuo regalo vai in camera da letto.</p>`;
+        }
+
+        mostraFoto();
+    </script>
+</body>
+</html>

@@ -217,8 +217,12 @@
         }
 
         function finale() {
+            // Rimuove anche il titolo principale
+            document.querySelector("h1").style.display = "none";
+    
+            // Sostituisce tutto il contenuto con la scritta finale
             document.getElementById("contenuto").innerHTML =
-                `<p class="finale">Hai indovinato, per vedere il tuo regalo vai in camera da letto.</p>`;
+                `<p class="finale">Ora, per davvero, per ricevere il tuo regalo vai in camera da letto.</p>`;
         }
 
         mostraFoto();
